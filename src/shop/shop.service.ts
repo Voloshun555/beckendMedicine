@@ -18,12 +18,15 @@ export class ShopService {
 
   async create(shopDto: ShopDto) {
     const newUser = new this.userModel(shopDto.user);
-    const newProduct = new this.productModel(shopDto.product);
     await newUser.save();
-    await newProduct.save();
+    const newProducts = shopDto.product.map(
+      (productData: any) => new this.productModel(productData),
+    );
+    await this.productModel.create(newProducts);
+
     return {
       user: newUser,
-      product: newProduct,
+      product: newProducts,
     };
   }
 }

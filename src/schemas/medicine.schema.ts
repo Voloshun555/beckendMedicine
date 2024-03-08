@@ -5,8 +5,8 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
   versionKey: false,
 })
 export class Medicine {
- @Prop()
-  id: string
+  @Prop()
+  id: string;
 
   @Prop()
   name: string;
@@ -16,7 +16,6 @@ export class Medicine {
 
   @Prop()
   price: number;
-
 }
 
 export const MedicineSchema = SchemaFactory.createForClass(Medicine);
