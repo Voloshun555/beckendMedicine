@@ -3,9 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MongooseConfigService } from './config/mongooseConfigService';
 import configuretion from './config/configuration';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-import { ContactsModule } from './contacts/contacts.module';
+import { MedicineModule } from './medicine/medicine.module';
+import { ShopModule } from './shop/shop.module';
 
 @Module({
   imports: [
@@ -16,9 +15,8 @@ import { ContactsModule } from './contacts/contacts.module';
     ConfigModule.forRoot({
       load: [configuretion],
     }),
-    UsersModule,
-    AuthModule,
-    ContactsModule,
+    MedicineModule,
+    ShopModule,
   ],
 })
 export class AppModule {}
